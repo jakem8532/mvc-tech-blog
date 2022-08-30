@@ -1,19 +1,21 @@
-const newPostForm = document.querySelector('.new-post-form')
+const editPostForm = document.querySelector('.edit-post-form')
 
-async function newPostHandler(e) {
+async function editPostHandler(e) {
     e.preventDefault()
+
+    const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
 
     const title = document.querySelector('input[name="post-title"]').value
     const post_text = document.querySelector('textarea[name="post-text"]').value
 
-    const res = await fetch('/api/posts', {
-        method: 'POST',
+    const res = await fetch(`/api/posts/${id}`, {
+        method: 'PUT',
         body: JSON.stringify({
             title,
             post_text
         }),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type:': 'application/json'
         }
     })
 
@@ -24,4 +26,4 @@ async function newPostHandler(e) {
     }
 }
 
-newPostForm.addEventListener('submit', newPostHandler)
+editPostForm.addEventListener('submit', editPostHandler)
