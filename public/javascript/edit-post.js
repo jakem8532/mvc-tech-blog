@@ -3,7 +3,9 @@ const editPostForm = document.querySelector('.edit-post-form')
 async function editPostHandler(e) {
     e.preventDefault()
 
-    const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+        ]
 
     const title = document.querySelector('input[name="post-title"]').value
     const post_text = document.querySelector('textarea[name="post-text"]').value

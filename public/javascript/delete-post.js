@@ -16,4 +16,4 @@ async function deletePostHandler(e) {
     }
 }
 
-deletePostBtn.addEventListener('submit', deletePostHandler)
+deletePostBtn.addEventListener('click', deletePostHandler)
